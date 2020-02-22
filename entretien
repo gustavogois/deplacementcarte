@@ -1,5 +1,38 @@
 1. Lógica, entendimento da solução, comportamento / postura diante das dificuldades
 
-- E se fosse dado um novo requisito:
+- E se fosse dado um novo requisito?
 
 "Colocar uma nova coordenada, onde seja necessário pensar em uma nova solução"
+
+2. Organização do trabalho
+
+- Como organizou-se para executar as tarefas? Dividiu em tarefas? Quais?
+
+- Usou algum repositório? Como foram as mensagens git e padrão GIT?
+
+- TDD?
+
+3. Padrão
+
+Usou francês?
+
+4. Organização, padrão do código, qualidade
+
+- Padrão dos pacotes
+
+- Nome das classes
+
+- SOLID
+
+- immutable objects
+
+5. Testes
+
+- Nível de cobertura dos testes
+- AssertJ, Hamcrest
+
+6. Sonar
+
+7. Tratamento de erros, robustez da aplicação
+
+- Se passarmos um mapa inconsistente?
