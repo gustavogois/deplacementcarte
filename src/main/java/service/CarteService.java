@@ -18,7 +18,7 @@ public class CarteService {
         }
     }
 
-    private boolean estValable(Jeu jeu, char direction) {
+    public boolean estValable(Jeu jeu, char direction) {
 
         switch (direction) {
             case 'E' :
@@ -26,9 +26,5 @@ public class CarteService {
             default:
                 return false;
         }
-    }
-
-    public boolean nEstPasLimiteEst(Carte carte, Coordonner courant) {
-        return courant.getX() < (carte.getPoints()[courant.getY()].length - 1);
     }
 }
