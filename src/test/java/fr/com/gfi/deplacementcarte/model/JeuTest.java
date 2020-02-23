@@ -26,8 +26,8 @@ public class JeuTest {
 
     @Test
     public void deplacementEstTest() {
-        Carte positionActualle = jeu.deplacement("E");
+        //jeu.deplacement('E');
 
-        assertEquals(new Coordonner(1, 0), positionActualle);
+        assertEquals(new Coordonner(1, 0), jeu.getCourant());
     }
 }

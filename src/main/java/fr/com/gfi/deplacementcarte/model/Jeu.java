@@ -12,18 +12,6 @@ public class Jeu {
         setCourant(courant);
     }
 
-    public Carte deplacement(String direction) {
-
-        switch (direction) {
-            case "E" :
-                //carte.deplacement(direction);
-                break;
-            default:
-        }
-
-        return null;
-    }
-
     public void setDepart(Coordonner coord) {
         this.depart = coord;
         this.courant = coord;

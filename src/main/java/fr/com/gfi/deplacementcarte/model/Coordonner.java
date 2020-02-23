@@ -11,6 +11,10 @@ public class Coordonner {
         this.y = y;
     }
 
+    public Coordonner est() {
+        return new Coordonner(this.getX() + 1, this.getY());
+    }
+
     public int getX() {
         return x;
     }
@@ -31,5 +35,13 @@ public class Coordonner {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return "Coordonner{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

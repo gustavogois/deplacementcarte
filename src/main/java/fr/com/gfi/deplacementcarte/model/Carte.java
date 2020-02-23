@@ -22,5 +22,4 @@ public class Carte {
     public char[][] getPoints() {
         return points;
     }
-
 }
