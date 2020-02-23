@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 
@@ -11,25 +12,28 @@ public class CarteTest {
 
     Carte carte;
 
-    @Test
-    public void demarrerAvecValeursTest() {
+    @Before
+    public void before() {
         carte = new Carte(new Coordonner(2, 2));
-        Arrays.stream(carte.getPoints()).forEach(r -> Arrays.fill(r, ' '));
+    }
+
+    @Test
+    public void demarrerAvecEspacesTest() {
 
         // todo: use lambda to iterate and assert
-        assertEquals(' ', carte.getPoint(new Coordonner(0, 0)));
-        assertEquals(' ', carte.getPoint(new Coordonner(0, 1)));
-        assertEquals(' ', carte.getPoint(new Coordonner(1, 0)));
-        assertEquals(' ', carte.getPoint(new Coordonner(1, 1)));
+        for (char[] ligne : carte.getPoints()) {
+            for (char c : ligne) {
+                assertEquals(' ', c);
+            }
+        }
     }
 
     @Test
     public void getPointTest() {
-        carte = new Carte(new Coordonner(2, 2));
-        carte.setPoint(new Coordonner(0, 1), ' ');
+        carte.setPoint(new Coordonner(0, 1), '#');
 
         int point = carte.getPoint(new Coordonner(0, 1));
 
-        assertEquals(' ', point);
+        assertEquals('#', point);
     }
 }

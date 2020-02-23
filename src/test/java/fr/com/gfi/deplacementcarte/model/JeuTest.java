@@ -13,15 +13,21 @@ public class JeuTest {
     @Before
     public void createJeuTest() {
         // todo: lombok, builder
-        this.jeu = new Jeu(new Carte(new Coordonner(2, 2)));
+        Coordonner taille = new Coordonner(2, 2);
+        Coordonner depart = new Coordonner(0, 0);
+        this.jeu = new Jeu(new Carte(taille), depart);
     }
 
     @Test
-    public void positionDeDepartTest() {
-        jeu.setPositionDeDepart(new Coordonner(0, 0));
+    public void departTest() {
+        assertEquals(new Coordonner(0, 0), jeu.getDepart());
+        assertEquals(new Coordonner(0, 0), jeu.getCourant());
+    }
 
-        Coordonner coordPositionDeDepart = jeu.getPositionDeDepart();
+    @Test
+    public void deplacementEstTest() {
+        Carte positionActualle = jeu.deplacement("E");
 
-        assertEquals(new Coordonner(0, 0), coordPositionDeDepart);
+        assertEquals(new Coordonner(1, 0), positionActualle);
     }
 }

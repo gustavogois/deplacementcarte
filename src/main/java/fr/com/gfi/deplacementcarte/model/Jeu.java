@@ -3,17 +3,41 @@ package fr.com.gfi.deplacementcarte.model;
 public class Jeu {
 
     private Carte carte;
-    private Coordonner positionDeDepart;
+    private Coordonner depart;
+    private Coordonner courant;
 
-    public Jeu(Carte carte) {
+    public Jeu(Carte carte, Coordonner depart) {
         this.carte = carte;
+        setDepart(depart);
+        setCourant(courant);
     }
 
-    public void setPositionDeDepart(Coordonner coord) {
-        this.positionDeDepart = coord;
+    public Carte deplacement(String direction) {
+
+        switch (direction) {
+            case "E" :
+                //carte.deplacement(direction);
+                break;
+            default:
+        }
+
+        return null;
     }
 
-    public Coordonner getPositionDeDepart() {
-        return positionDeDepart;
+    public void setDepart(Coordonner coord) {
+        this.depart = coord;
+        this.courant = coord;
+    }
+
+    public Coordonner getDepart() {
+        return depart;
+    }
+
+    public Coordonner getCourant() {
+        return courant;
+    }
+
+    public void setCourant(Coordonner courant) {
+        this.courant = courant;
     }
 }

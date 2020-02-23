@@ -8,6 +8,7 @@ public class Carte {
 
     public Carte(Coordonner coord) {
         points = new char[coord.getX()][coord.getY()];
+        Arrays.stream(points).forEach(ligne -> Arrays.fill(ligne, ' '));
     }
 
     public int getPoint(Coordonner coord) {
@@ -21,4 +22,5 @@ public class Carte {
     public char[][] getPoints() {
         return points;
     }
+
 }
