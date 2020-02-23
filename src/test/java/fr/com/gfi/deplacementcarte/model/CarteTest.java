@@ -13,22 +13,22 @@ public class CarteTest {
 
     @Test
     public void demarrerAvecValeursTest() {
-        carte = new Carte(2, 2);
+        carte = new Carte(new Coordonner(2, 2));
         Arrays.stream(carte.getPoints()).forEach(r -> Arrays.fill(r, ' '));
 
         // todo: use lambda to iterate and assert
-        assertEquals(' ', carte.getPoint(0, 0));
-        assertEquals(' ', carte.getPoint(0, 1));
-        assertEquals(' ', carte.getPoint(1, 0));
-        assertEquals(' ', carte.getPoint(1, 1));
+        assertEquals(' ', carte.getPoint(new Coordonner(0, 0)));
+        assertEquals(' ', carte.getPoint(new Coordonner(0, 1)));
+        assertEquals(' ', carte.getPoint(new Coordonner(1, 0)));
+        assertEquals(' ', carte.getPoint(new Coordonner(1, 1)));
     }
 
     @Test
     public void getPointTest() {
-        carte = new Carte(2, 2);
-        carte.setPoint(0, 1, ' ');
+        carte = new Carte(new Coordonner(2, 2));
+        carte.setPoint(new Coordonner(0, 1), ' ');
 
-        int point = carte.getPoint(0, 1);
+        int point = carte.getPoint(new Coordonner(0, 1));
 
         assertEquals(' ', point);
     }

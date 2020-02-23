@@ -6,16 +6,16 @@ import java.util.Arrays;
 public class Carte {
     private char[][] points;
 
-    public Carte(int x, int y) {
-        points = new char[x][y];
+    public Carte(Coordonner coord) {
+        points = new char[coord.getX()][coord.getY()];
     }
 
-    public int getPoint(int x, int y) {
-        return points[x][y];
+    public int getPoint(Coordonner coord) {
+        return points[coord.getX()][coord.getY()];
     }
 
-    public void setPoint(int x, int y, char valeur) {
-        points[x][y] = valeur;
+    public void setPoint(Coordonner coord, char valeur) {
+        points[coord.getX()][coord.getY()] = valeur;
     }
 
     public char[][] getPoints() {

@@ -1,18 +1,27 @@
 package fr.com.gfi.deplacementcarte.model;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class JeuTest {
     Jeu jeu;
     Carte carte;
 
-    @Test
-    public void createGameTest() {
+    @Before
+    public void createJeuTest() {
         // todo: lombok, builder
-        Jeu jeu = new Jeu(new Carte(2, 2));
+        this.jeu = new Jeu(new Carte(new Coordonner(2, 2)));
+    }
 
-        assertNotNull(jeu);
+    @Test
+    public void positionDeDepartTest() {
+        jeu.setPositionDeDepart(new Coordonner(0, 0));
+
+        Coordonner coordPositionDeDepart = jeu.getPositionDeDepart();
+
+        assertEquals(new Coordonner(0, 0), coordPositionDeDepart);
     }
 }
