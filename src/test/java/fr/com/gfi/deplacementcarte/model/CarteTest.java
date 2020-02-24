@@ -11,10 +11,12 @@ import static org.junit.Assert.*;
 public class CarteTest {
 
     Carte carte;
+    Carte carteFile;
 
     @Before
     public void before() {
         carte = new Carte(new Coordonner(2, 2), ' ');
+        carteFile = new Carte("carte.txt");
     }
 
     @Test

@@ -13,6 +13,10 @@ public class Carte {
         new CarteUtil().remplirAvec(this, c);
     }
 
+    public Carte(String nomDeFichier) {
+
+    }
+
     public int getPoint(Coordonner coord) {
         return points[coord.getX()][coord.getY()];
     }
