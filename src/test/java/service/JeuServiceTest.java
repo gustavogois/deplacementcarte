@@ -74,4 +74,30 @@ public class JeuServiceTest {
 
         assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
     }
+
+    @Test
+    public void deplacementVersNordTest() {
+        jeu.setCourant(new Coordonner(0, 1));
+
+        Jeu nouveauJeu = service.deplacement(this.jeu, 'N');
+
+        assertEquals(nouveauJeu.getCourant().getX(), 0);
+        assertEquals(nouveauJeu.getCourant().getY(), 0);
+    }
+
+    @Test
+    public void deplacementVersNordIlyaBois() {
+        jeu.setCourant(new Coordonner(1, 1));
+
+        Jeu nouveauJeu = service.deplacement(this.jeu, 'N');
+
+        assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
+    }
+
+    @Test
+    public void deplacementVersNordEstLimite() {
+        Jeu nouveauJeu = service.deplacement(this.jeu, 'N');
+
+        assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
+    }
 }
