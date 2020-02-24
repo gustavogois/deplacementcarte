@@ -1,4 +1,4 @@
-package util;
+package fr.com.gfi.deplacementcarte.util;
 
 import java.io.File;
 

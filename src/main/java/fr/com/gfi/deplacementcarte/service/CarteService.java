@@ -1,4 +1,4 @@
-package service;
+package fr.com.gfi.deplacementcarte.service;
 
 import fr.com.gfi.deplacementcarte.model.Carte;
 import fr.com.gfi.deplacementcarte.model.Coordonner;
