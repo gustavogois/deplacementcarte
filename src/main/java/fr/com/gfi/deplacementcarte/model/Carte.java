@@ -1,6 +1,7 @@
 package fr.com.gfi.deplacementcarte.model;
 
 import util.CarteUtil;
+import util.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class Carte {
 
         // todo improvement
         List<String> lignes = new ArrayList<>();
-        try (Stream<String> stream = Files.lines(Paths.get("/" + nomDeFichier))) {
+        try (Stream<String> stream = Files.lines(Paths.get(FileUtils.getPathFromResources("carte.txt")))) {
 
             lignes = stream.collect(Collectors.toList());
 
