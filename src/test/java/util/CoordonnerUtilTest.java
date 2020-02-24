@@ -19,7 +19,7 @@ public class CoordonnerUtilTest {
 
     @Test
     public void immuabiliteEstTest() {
-        Coordonner newCoord = util.est(this.coordonner);
+        Coordonner newCoord = util.deplacement(this.coordonner, 'E');
 
         assertEquals(1, this.coordonner.getX());
         assertEquals(2, this.coordonner.getY());
@@ -28,7 +28,7 @@ public class CoordonnerUtilTest {
 
     @Test
     public void estTest() {
-        Coordonner newCoord = util.est(this.coordonner);
+        Coordonner newCoord = util.deplacement(this.coordonner, 'E');
 
         assertEquals(2, newCoord. getX());
         assertEquals(2, newCoord. getY());
@@ -36,10 +36,9 @@ public class CoordonnerUtilTest {
 
     @Test
     public void sudTest() {
-        Coordonner newCoord = util.sud(this.coordonner);
+        Coordonner newCoord = util.deplacement(this.coordonner, 'S');
 
         assertEquals(1, newCoord. getX());
         assertEquals(3, newCoord. getY());
     }
-
 }

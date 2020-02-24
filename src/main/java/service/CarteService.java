@@ -16,7 +16,8 @@ public class CarteService {
         // todo: immutability
         switch (direction) {
             case 'E' :
-                return Carteutil.estValable(carte, courant, direction) ? coordUtil.est(courant) : courant;
+                return Carteutil.estValable(carte, courant, direction) ?
+                        coordUtil.deplacement(courant, 'E') : courant;
             default:
                 return courant;
         }
