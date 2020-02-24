@@ -101,4 +101,32 @@ public class CarteServiceTest {
 
         assertTrue(nouveauCoord == courant);
     }
+
+    @Test
+    public void deplacementVersOuest() {
+        this.courant = new Coordonner(1, 1);
+
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'O');
+
+        assertEquals(0, nouveauCoord.getX());
+        assertEquals(1, nouveauCoord.getY());
+    }
+
+    @Test
+    public void deplacementVersOuestIlyaBois() {
+        this.courant = new Coordonner(1, 1);
+        this.carte.setPoint(new Coordonner(0, 1), '#');
+
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'O');
+
+        assertTrue(nouveauCoord == courant);
+    }
+
+    @Test
+    public void deplacementVersOuestEstLimite() {
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'O');
+
+        assertTrue(nouveauCoord == courant);
+    }
+
 }
