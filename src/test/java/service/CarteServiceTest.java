@@ -76,4 +76,29 @@ public class CarteServiceTest {
         assertTrue(nouveauCoord == courant);
     }
 
+    @Test
+    public void deplacementVersNord() {
+        this.courant = new Coordonner(0, 1);
+
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'N');
+
+        assertEquals(0, nouveauCoord.getX());
+        assertEquals(0, nouveauCoord.getY());
+    }
+
+    @Test
+    public void deplacementVersNordIlyaBois() {
+        this.courant = new Coordonner(1, 1);
+
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'N');
+
+        assertTrue(nouveauCoord == courant);
+    }
+
+    @Test
+    public void deplacementVersNordEstLimite() {
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'N');
+
+        assertTrue(nouveauCoord == courant);
+    }
 }
