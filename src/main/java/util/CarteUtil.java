@@ -46,5 +46,4 @@ public class CarteUtil {
     public void remplirAvec(Carte carte, char c) {
         Arrays.stream(carte.getPoints()).forEach(ligne -> Arrays.fill(ligne, c));
     }
-
 }

@@ -13,14 +13,7 @@ public class CarteService {
 
     public Coordonner deplacement(Carte carte, Coordonner courant, char direction) {
 
-        // todo: immutability
-        switch (direction) {
-            case 'E' :
-                return Carteutil.estValable(carte, courant, direction) ?
-                        coordUtil.deplacement(courant, 'E') : courant;
-            default:
-                return courant;
-        }
+        return Carteutil.estValable(carte, courant, direction) ? coordUtil.deplacement(courant, direction) : courant;
     }
 
 }
