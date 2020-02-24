@@ -8,12 +8,8 @@ import java.util.Arrays;
 public class Carte {
     private char[][] points;
 
-    public Carte(Coordonner taille) {
-        points = new char[taille.getX()][taille.getY()];
-    }
-
     public Carte(Coordonner taille, char c) {
-        this(taille);
+        points = new char[taille.getX()][taille.getY()];
         new CarteUtil().remplirAvec(this, c);
     }
 
