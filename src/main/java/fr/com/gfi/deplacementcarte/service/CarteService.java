@@ -2,9 +2,8 @@ package fr.com.gfi.deplacementcarte.service;
 
 import fr.com.gfi.deplacementcarte.model.Carte;
 import fr.com.gfi.deplacementcarte.model.Coordonner;
-import fr.com.gfi.deplacementcarte.model.Jeu;
-import util.CarteUtil;
-import util.CoordonnerUtil;
+import fr.com.gfi.deplacementcarte.util.CarteUtil;
+import fr.com.gfi.deplacementcarte.util.CoordonnerUtil;
 
 public class CarteService {
 
