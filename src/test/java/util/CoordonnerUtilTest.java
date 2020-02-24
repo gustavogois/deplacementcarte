@@ -27,10 +27,19 @@ public class CoordonnerUtilTest {
     }
 
     @Test
-    public void est() {
+    public void estTest() {
         Coordonner newCoord = util.est(this.coordonner);
 
         assertEquals(2, newCoord. getX());
         assertEquals(2, newCoord. getY());
     }
+
+    @Test
+    public void sudTest() {
+        Coordonner newCoord = util.sud(this.coordonner);
+
+        assertEquals(1, newCoord. getX());
+        assertEquals(3, newCoord. getY());
+    }
+
 }

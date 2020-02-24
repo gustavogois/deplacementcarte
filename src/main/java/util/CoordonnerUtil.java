@@ -8,5 +8,8 @@ public class CoordonnerUtil {
         return new Coordonner(coord.getX() + 1, coord.getY());
     }
 
+    public Coordonner sud(Coordonner coord) {
+        return new Coordonner(coord.getX(), coord.getY() + 1);
+    }
 
 }
