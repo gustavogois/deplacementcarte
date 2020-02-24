@@ -42,10 +42,10 @@ public class CarteUtilTest {
 
     @Test
     public void nEstPasLimiteSudTest() {
-        assertFalse(util.estLimiteSud(carte, new Coordonner(0, 0)));
-        assertTrue(util.estLimiteSud(carte, new Coordonner(0, 1)));
-        assertFalse(util.estLimiteSud(carte, new Coordonner(1, 0)));
-        assertTrue(util.estLimiteSud(carte, new Coordonner(1, 1)));
+        assertFalse(util.estLimite(carte, new Coordonner(0, 0), 'S'));
+        assertTrue(util.estLimite(carte, new Coordonner(0, 1), 'S'));
+        assertFalse(util.estLimite(carte, new Coordonner(1, 0), 'S'));
+        assertTrue(util.estLimite(carte, new Coordonner(1, 1), 'S'));
     }
 
     @Test
@@ -75,10 +75,10 @@ public class CarteUtilTest {
 
     @Test
     public void nEstPasLimiteEstTest() {
-        assertFalse(util.estLimiteEst(carte, new Coordonner(0, 0)));
-        assertFalse(util.estLimiteEst(carte, new Coordonner(0, 1)));
-        assertTrue(util.estLimiteEst(carte, new Coordonner(1, 0)));
-        assertTrue(util.estLimiteEst(carte, new Coordonner(1, 1)));
+        assertFalse(util.estLimite(carte, new Coordonner(0, 0), 'E'));
+        assertFalse(util.estLimite(carte, new Coordonner(0, 1), 'E'));
+        assertTrue(util.estLimite(carte, new Coordonner(1, 0), 'E'));
+        assertTrue(util.estLimite(carte, new Coordonner(1, 1), 'E'));
     }
 
     @Test

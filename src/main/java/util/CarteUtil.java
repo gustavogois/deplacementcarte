@@ -7,23 +7,26 @@ import java.util.Arrays;
 
 public class CarteUtil {
 
-    public boolean estLimiteEst(Carte carte, Coordonner courant) {
-        return courant.getX() >= (carte.getPoints()[courant.getY()].length - 1);
-    }
-
-    public boolean estLimiteSud(Carte carte, Coordonner courant) {
-        return courant.getY() >= (carte.getPoints()[courant.getX()].length - 1);
+    public boolean estLimite(Carte carte, Coordonner courant, char c) {
+        switch (c) {
+            case 'E':
+                return courant.getX() >= (carte.getPoints()[courant.getY()].length - 1);
+            case 'S':
+                return courant.getY() >= (carte.getPoints()[courant.getX()].length - 1);
+            default:
+                return false;
+        }
     }
 
     public boolean ilYABoisDroite(Carte carte, Coordonner courant) {
-        if (!estLimiteEst(carte, courant)) {
+        if (!estLimite(carte, courant, 'E')) {
             return carte.getPoints()[courant.getX() + 1][courant.getY()] == '#';
         }
         return false;
     }
 
     public boolean ilYABoisDessous(Carte carte, Coordonner courant) {
-        if (!estLimiteSud(carte, courant)) {
+        if (!estLimite(carte, courant, 'S')) {
             return carte.getPoints()[courant.getX()][courant.getY() + 1] == '#';
         }
         return false;
@@ -33,9 +36,9 @@ public class CarteUtil {
 
         switch (direction) {
             case 'E' :
-                return (!estLimiteEst(carte, coord) && !ilYABoisDroite(carte, coord)) ? true : false;
+                return (!estLimite(carte, coord, 'E') && !ilYABoisDroite(carte, coord)) ? true : false;
             case 'S' :
-                return (!estLimiteSud(carte, coord) && !ilYABoisDessous(carte, coord)) ? true : false;
+                return (!estLimite(carte, coord, 'S') && !ilYABoisDessous(carte, coord)) ? true : false;
             default:
                 return false;
         }
