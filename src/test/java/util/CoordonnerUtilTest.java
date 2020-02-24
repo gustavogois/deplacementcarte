@@ -41,4 +41,13 @@ public class CoordonnerUtilTest {
         assertEquals(1, newCoord. getX());
         assertEquals(3, newCoord. getY());
     }
+
+    @Test
+    public void nordTest() {
+        Coordonner newCoord = util.deplacement(this.coordonner, 'N');
+
+        assertEquals(1, newCoord. getX());
+        assertEquals(1, newCoord. getY());
+    }
+
 }

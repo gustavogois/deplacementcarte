@@ -10,6 +10,8 @@ public class CoordonnerUtil {
                 return new Coordonner(coord.getX() + 1, coord.getY());
             case 'S':
                 return new Coordonner(coord.getX(), coord.getY() + 1);
+            case 'N':
+                return new Coordonner(coord.getX(), coord.getY() - 1);
             default:
                 return coord;
         }
