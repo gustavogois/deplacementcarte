@@ -129,4 +129,11 @@ public class JeuServiceTest {
         assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
     }
 
+    @Test
+    public void deplacements() {
+        Jeu nouveauJeu = service.deplacements(this.jeu, "SSSEEENNNNOOOO");
+
+        // todo Transformar em um único equals, usando o equals de Coord (em todos!!)
+        assertEquals(new Coordonner(0, 1), jeu.getCourant());
+    }
 }

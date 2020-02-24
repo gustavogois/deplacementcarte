@@ -13,4 +13,11 @@ public class JeuService {
         jeu.setCourant(noveauCourant);
         return jeu;
     }
+
+    public Jeu deplacements(Jeu jeu, String directions) {
+        Coordonner noveauCourant = carteService.deplacements(jeu.getCarte(), jeu.getCourant(), directions);
+        jeu.setCourant(noveauCourant);
+        return jeu;
+    }
+
 }
