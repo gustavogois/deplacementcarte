@@ -129,4 +129,12 @@ public class CarteServiceTest {
         assertTrue(nouveauCoord == courant);
     }
 
+    @Test
+    public void plusieuersDeplacement() {
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, "SSSEEENNNNOOOO");
+
+        // todo Transformar em um único equals, usando o equals de Coord (em todos!!)
+        assertEquals(0, nouveauCoord.getX());
+        assertEquals(1, nouveauCoord.getY());
+    }
 }

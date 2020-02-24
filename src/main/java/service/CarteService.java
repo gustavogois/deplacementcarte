@@ -12,8 +12,18 @@ public class CarteService {
     private CoordonnerUtil coordUtil = new CoordonnerUtil();
 
     public Coordonner deplacement(Carte carte, Coordonner courant, char direction) {
-
         return Carteutil.estValable(carte, courant, direction) ? coordUtil.deplacement(courant, direction) : courant;
     }
 
+    public Coordonner deplacement(Carte carte, Coordonner courant, String directions) {
+
+        // todo Verificar se existe forma melhor de fazer com stream
+        Coordonner nouveauCoord = courant;
+        for (int i = 0 ; i < directions.length() ; i++) {
+            char direction = directions.charAt(i);
+            nouveauCoord = deplacement(carte, courant, direction);
+            courant = nouveauCoord;
+        }
+        return nouveauCoord;
+    }
 }
