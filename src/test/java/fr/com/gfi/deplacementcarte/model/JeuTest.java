@@ -23,11 +23,4 @@ public class JeuTest {
         assertEquals(new Coordonner(0, 0), jeu.getDepart());
         assertEquals(new Coordonner(0, 0), jeu.getCourant());
     }
-
-    @Test
-    public void deplacementEstTest() {
-        //jeu.deplacement('E');
-
-        assertEquals(new Coordonner(1, 0), jeu.getCourant());
-    }
 }

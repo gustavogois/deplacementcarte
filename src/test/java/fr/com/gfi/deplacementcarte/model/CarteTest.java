@@ -18,17 +18,6 @@ public class CarteTest {
     }
 
     @Test
-    public void demarrerAvecEspacesTest() {
-
-        // todo: use lambda to iterate and assert
-        for (char[] ligne : carte.getPoints()) {
-            for (char c : ligne) {
-                assertEquals(' ', c);
-            }
-        }
-    }
-
-    @Test
     public void getPointTest() {
         carte.setPoint(new Coordonner(0, 1), '#');
 

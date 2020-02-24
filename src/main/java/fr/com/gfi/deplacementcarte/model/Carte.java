@@ -2,13 +2,12 @@ package fr.com.gfi.deplacementcarte.model;
 
 import java.util.Arrays;
 
-// todo: transform to stateless
+// todo: immuabilité
 public class Carte {
     private char[][] points;
 
-    public Carte(Coordonner coord) {
-        points = new char[coord.getX()][coord.getY()];
-        Arrays.stream(points).forEach(ligne -> Arrays.fill(ligne, ' '));
+    public Carte(Coordonner taille) {
+        points = new char[taille.getX()][taille.getY()];
     }
 
     public int getPoint(Coordonner coord) {

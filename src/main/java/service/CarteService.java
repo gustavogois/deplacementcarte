@@ -10,17 +10,18 @@ public class CarteService {
     private CarteUtil Carteutil = new CarteUtil();
     private CoordonnerUtil coordUtil = new CoordonnerUtil();
 
-    public Coordonner deplacement(Jeu jeu, char direction) {
+    public Jeu deplacement(Jeu jeu, char direction) {
 
-        Coordonner courant = jeu.getCourant();
+//        Jeu nouveauJeu = new Jeu(jeu);
 
-        switch (direction) {
-            case 'E' :
-                return Carteutil.estValable(jeu.getCarte(), jeu.getCourant(), direction) ?
-                        coordUtil.est(courant) : courant;
-            default:
-                return courant;
-        }
+//        switch (direction) {
+//            case 'E' :
+//                return Carteutil.estValable(jeu.getCarte(), jeu.getCourant(), direction) ?
+//                        coordUtil.est(courant) : courant;
+//            default:
+//                return courant;
+//        }
+        return null;
     }
 
 }

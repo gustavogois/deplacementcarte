@@ -9,8 +9,8 @@ public class JeuService {
 
     // todo Considerar a imutabilidade dos objetos
     public Jeu deplacement(Jeu jeu, char direction) {
-        Coordonner noveauCourant = carteService.deplacement(jeu, direction);
-        jeu.setCourant(noveauCourant);
+//        Coordonner noveauCourant = carteService.deplacement(jeu, direction);
+//        jeu.setCourant(noveauCourant);
 
         return null;
     }

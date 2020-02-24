@@ -3,6 +3,8 @@ package util;
 import fr.com.gfi.deplacementcarte.model.Carte;
 import fr.com.gfi.deplacementcarte.model.Coordonner;
 
+import java.util.Arrays;
+
 public class CarteUtil {
 
     public boolean estLimiteEst(Carte carte, Coordonner courant) {
@@ -26,4 +28,7 @@ public class CarteUtil {
         }
     }
 
+    public void remplirAvec(Carte carte, char c) {
+        Arrays.stream(carte.getPoints()).forEach(ligne -> Arrays.fill(ligne, c));
+    }
 }

@@ -47,6 +47,27 @@ public class CarteUtilTest {
         Coordonner courantInvalideBois = new Coordonner(0, 0);
         carte.setPoint(new Coordonner( 1, 0), '#');
         assertFalse(util.estValable(this.carte, courantInvalideBois, 'E'));
+    }
+
+    @Test
+    public void remplirDeTest() {
+
+        char[][] points = this.carte.getPoints();
+        // todo use lambda to assert
+        for (int ligne = 0 ; ligne < points.length ; ligne++) {
+            for (int collone = 0 ; collone < points[ligne].length ; collone++) {
+                assertEquals(0, points[ligne][collone]);
+            }
+        }
+
+        util.remplirAvec(this.carte, ' ');
+
+        // todo use lambda to assert
+        for (int ligne = 0 ; ligne < points.length ; ligne++) {
+            for (int collone = 0 ; collone < points[ligne].length ; collone++) {
+                assertEquals(' ', points[ligne][collone]);
+            }
+        }
 
     }
 }

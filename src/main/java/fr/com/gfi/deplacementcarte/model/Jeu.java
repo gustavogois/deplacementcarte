@@ -12,6 +12,10 @@ public class Jeu {
         setCourant(courant);
     }
 
+//    public Jeu(Jeu jeu) {
+//        this(new Carte(jeu.getDepart()), );
+//    }
+
     public void setDepart(Coordonner coord) {
         this.depart = coord;
         this.courant = coord;
