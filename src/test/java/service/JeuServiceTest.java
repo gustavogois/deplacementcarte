@@ -100,4 +100,33 @@ public class JeuServiceTest {
 
         assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
     }
+
+    @Test
+    public void deplacementVersOuestTest() {
+        jeu.setCourant(new Coordonner(1, 1));
+
+        Jeu nouveauJeu = service.deplacement(this.jeu, 'O');
+
+        assertEquals(nouveauJeu.getCourant().getX(), 0);
+        assertEquals(nouveauJeu.getCourant().getY(), 1);
+    }
+
+    @Test
+    public void deplacementVersOuestIlyaBois() {
+        jeu.setCourant(new Coordonner(1, 1));
+        // todo: improvement
+        jeu.getCarte().setPoint(new Coordonner(1, 0), '#');
+
+        Jeu nouveauJeu = service.deplacement(this.jeu, 'O');
+
+        assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
+    }
+
+    @Test
+    public void deplacementVersOuestEstLimite() {
+        Jeu nouveauJeu = service.deplacement(this.jeu, 'O');
+
+        assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
+    }
+
 }
