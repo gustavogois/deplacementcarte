@@ -13,6 +13,8 @@ public class CarteUtil {
                 return courant.getX() >= (carte.getPoints()[courant.getY()].length - 1);
             case 'S':
                 return courant.getY() >= (carte.getPoints()[courant.getX()].length - 1);
+            case 'N':
+                return courant.getY() == 0;
             default:
                 return false;
         }
@@ -26,6 +28,9 @@ public class CarteUtil {
             case 'S':
                 return !estLimite(carte, courant, 'S') &&
                         carte.getPoints()[courant.getX()][courant.getY() + 1] == '#';
+            case 'N':
+                return !estLimite(carte, courant, 'N') &&
+                        carte.getPoints()[courant.getX()][courant.getY() - 1] == '#';
             default:
                 return false;
         }
@@ -38,6 +43,8 @@ public class CarteUtil {
                 return !estLimite(carte, coord, 'E') && !ilYABois(carte, coord, 'E');
             case 'S' :
                 return !estLimite(carte, coord, 'S') && !ilYABois(carte, coord, 'S');
+            case 'N' :
+                return !estLimite(carte, coord, 'N') && !ilYABois(carte, coord, 'N');
             default:
                 return false;
         }
