@@ -15,7 +15,7 @@ public class CarteService {
         return Carteutil.estValable(carte, courant, direction) ? coordUtil.deplacement(courant, direction) : courant;
     }
 
-    public Coordonner deplacement(Carte carte, Coordonner courant, String directions) {
+    public Coordonner deplacements(Carte carte, Coordonner courant, String directions) {
 
         // todo Verificar se existe forma melhor de fazer com stream
         Coordonner nouveauCoord = courant;

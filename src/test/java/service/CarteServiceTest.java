@@ -130,8 +130,8 @@ public class CarteServiceTest {
     }
 
     @Test
-    public void plusieuersDeplacement() {
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, "SSSEEENNNNOOOO");
+    public void plusieuersDeplacements() {
+        Coordonner nouveauCoord = service.deplacements(this.carte, this.courant, "SSSEEENNNNOOOO");
 
         // todo Transformar em um único equals, usando o equals de Coord (em todos!!)
         assertEquals(0, nouveauCoord.getX());
