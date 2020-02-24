@@ -18,27 +18,26 @@ public class CarteUtil {
         }
     }
 
-    public boolean ilYABoisDroite(Carte carte, Coordonner courant) {
-        if (!estLimite(carte, courant, 'E')) {
-            return carte.getPoints()[courant.getX() + 1][courant.getY()] == '#';
+    public boolean ilYABois(Carte carte, Coordonner courant, char c) {
+        switch (c) {
+            case 'E':
+                return !estLimite(carte, courant, 'E') &&
+                        carte.getPoints()[courant.getX() + 1][courant.getY()] == '#';
+            case 'S':
+                return !estLimite(carte, courant, 'S') &&
+                        carte.getPoints()[courant.getX()][courant.getY() + 1] == '#';
+            default:
+                return false;
         }
-        return false;
-    }
-
-    public boolean ilYABoisDessous(Carte carte, Coordonner courant) {
-        if (!estLimite(carte, courant, 'S')) {
-            return carte.getPoints()[courant.getX()][courant.getY() + 1] == '#';
-        }
-        return false;
     }
 
     public boolean estValable(Carte carte, Coordonner coord, char direction) {
 
         switch (direction) {
             case 'E' :
-                return (!estLimite(carte, coord, 'E') && !ilYABoisDroite(carte, coord)) ? true : false;
+                return !estLimite(carte, coord, 'E') && !ilYABois(carte, coord, 'E');
             case 'S' :
-                return (!estLimite(carte, coord, 'S') && !ilYABoisDessous(carte, coord)) ? true : false;
+                return !estLimite(carte, coord, 'S') && !ilYABois(carte, coord, 'S');
             default:
                 return false;
         }

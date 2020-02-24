@@ -52,10 +52,10 @@ public class CarteUtilTest {
     public void ilYABoisDessousTest() {
         carte.setPoint(new Coordonner( 0, 1), '#');
 
-        assertTrue(util.ilYABoisDessous(carte, new Coordonner(0, 0)));
-        assertFalse(util.ilYABoisDessous(carte, new Coordonner(0, 1)));
-        assertFalse(util.ilYABoisDessous(carte, new Coordonner(1, 0)));
-        assertFalse(util.ilYABoisDessous(carte, new Coordonner(1, 1)));
+        assertTrue(util.ilYABois(carte, new Coordonner(0, 0), 'S'));
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), 'S'));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), 'S'));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 1), 'S'));
     }
 
     @Test
@@ -85,10 +85,10 @@ public class CarteUtilTest {
     public void ilYABoisDroiteTest() {
         carte.setPoint(new Coordonner( 1, 0), '#');
 
-        assertTrue(util.ilYABoisDroite(carte, new Coordonner(0, 0)));
-        assertFalse(util.ilYABoisDroite(carte, new Coordonner(0, 1)));
-        assertFalse(util.ilYABoisDroite(carte, new Coordonner(1, 0)));
-        assertFalse(util.ilYABoisDroite(carte, new Coordonner(1, 1)));
+        assertTrue(util.ilYABois(carte, new Coordonner(0, 0), 'E'));
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), 'E'));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), 'E'));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 1), 'E'));
     }
 
     @Test
