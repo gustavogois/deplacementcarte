@@ -137,4 +137,37 @@ public class CarteUtilTest {
 
     }
 
+    @Test
+    public void nEstPasLimiteOuestTest() {
+        assertTrue(util.estLimite(carte, new Coordonner(0, 0), 'O'));
+        assertTrue(util.estLimite(carte, new Coordonner(0, 1), 'O'));
+        assertFalse(util.estLimite(carte, new Coordonner(1, 0), 'O'));
+        assertFalse(util.estLimite(carte, new Coordonner(1, 1), 'O'));
+    }
+
+    @Test
+    public void ilYABoisGaucheTest() {
+        carte.setPoint(new Coordonner( 0, 1), '#');
+
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 0), 'O'));
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), 'O'));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), 'O'));
+        assertTrue(util.ilYABois(carte, new Coordonner(1, 1), 'O'));
+    }
+
+    @Test
+    public void estValableDirectionOuestTest() {
+        carte.setPoint(new Coordonner( 0, 1), '#');
+
+        Coordonner courant1 = new Coordonner(0, 0);
+        assertFalse(util.estValable(this.carte, courant1, 'O'));
+
+        Coordonner courant2 = new Coordonner(1, 0);
+        assertTrue(util.estValable(this.carte, courant2, 'O'));
+
+        Coordonner courant3 = new Coordonner(1, 1);
+        assertFalse(util.estValable(this.carte, courant3, 'O'));
+
+    }
+
 }
