@@ -50,4 +50,11 @@ public class CoordonnerUtilTest {
         assertEquals(1, newCoord. getY());
     }
 
+    @Test
+    public void OuestTest() {
+        Coordonner newCoord = util.deplacement(this.coordonner, 'O');
+
+        assertEquals(0, newCoord. getX());
+        assertEquals(2, newCoord. getY());
+    }
 }

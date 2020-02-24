@@ -12,6 +12,8 @@ public class CoordonnerUtil {
                 return new Coordonner(coord.getX(), coord.getY() + 1);
             case 'N':
                 return new Coordonner(coord.getX(), coord.getY() - 1);
+            case 'O':
+                return new Coordonner(coord.getX() - 1, coord.getY());
             default:
                 return coord;
         }
