@@ -23,7 +23,7 @@ public class JeuServiceTest {
     }
 
     @Test
-    public void deplacementTest() {
+    public void deplacementVersEstTest() {
         this.jeu.setCourant(new Coordonner(0, 1));
 
         Jeu nouveauJeu = service.deplacement(this.jeu, 'E');
@@ -36,8 +36,7 @@ public class JeuServiceTest {
     public void deplacementVersEstIlyaBois() {
         Jeu nouveauJeu = service.deplacement(this.jeu, 'E');
 
-        assertEquals(0, nouveauJeu.getCourant().getX());
-        assertEquals(0, nouveauJeu.getCourant().getY());
+        assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
     }
 
     @Test
@@ -46,8 +45,33 @@ public class JeuServiceTest {
 
         Jeu nouveauJeu = service.deplacement(this.jeu, 'E');
 
-        assertEquals(1, nouveauJeu.getCourant().getX());
-        assertEquals(1, nouveauJeu.getCourant().getY());
+        assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
     }
 
+    @Test
+    public void deplacementVersSudTest() {
+        Jeu nouveauJeu = service.deplacement(this.jeu, 'S');
+
+        assertEquals(nouveauJeu.getCourant().getX(), 0);
+        assertEquals(nouveauJeu.getCourant().getY(), 1);
+    }
+
+    @Test
+    public void deplacementVersSudIlyaBois() {
+        // todo: improvement
+        jeu.getCarte().setPoint(new Coordonner(0, 1), '#');
+
+        Jeu nouveauJeu = service.deplacement(this.jeu, 'S');
+
+        assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
+    }
+
+    @Test
+    public void deplacementVersSudEstLimite() {
+        jeu.setCourant(new Coordonner(1, 1));
+
+        Jeu nouveauJeu = service.deplacement(this.jeu, 'S');
+
+        assertTrue(nouveauJeu.getCourant() == jeu.getCourant());
+    }
 }
