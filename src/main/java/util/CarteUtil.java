@@ -15,4 +15,15 @@ public class CarteUtil {
         }
         return false;
     }
+
+    public boolean estValable(Carte carte, Coordonner coord, char direction) {
+
+        switch (direction) {
+            case 'E' :
+                return (!estLimiteEst(carte, coord) && !ilYABoisDroite(carte, coord)) ? true : false;
+            default:
+                return false;
+        }
+    }
+
 }

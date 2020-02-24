@@ -28,4 +28,12 @@ public class Jeu {
     public void setCourant(Coordonner courant) {
         this.courant = courant;
     }
+
+    public Carte getCarte() {
+        return carte;
+    }
+
+    public void setCarte(Carte carte) {
+        this.carte = carte;
+    }
 }

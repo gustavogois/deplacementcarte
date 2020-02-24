@@ -3,8 +3,11 @@ package service;
 import fr.com.gfi.deplacementcarte.model.Carte;
 import fr.com.gfi.deplacementcarte.model.Coordonner;
 import fr.com.gfi.deplacementcarte.model.Jeu;
+import util.CarteUtil;
 
 public class CarteService {
+
+    private CarteUtil util = new CarteUtil();
 
     public Coordonner deplacement(Jeu jeu, char direction) {
 
@@ -12,19 +15,10 @@ public class CarteService {
 
         switch (direction) {
             case 'E' :
-                return estValable(jeu, direction) ? courant.est() : courant;
+                return util.estValable(jeu.getCarte(), jeu.getCourant(), direction) ? courant.est() : courant;
             default:
                 return courant;
         }
     }
 
-    public boolean estValable(Jeu jeu, char direction) {
-
-        switch (direction) {
-            case 'E' :
-                //return (nEstPasLimiteEst(courant) && ilNYAPasBoisDroite()) ? true : false;
-            default:
-                return false;
-        }
-    }
 }

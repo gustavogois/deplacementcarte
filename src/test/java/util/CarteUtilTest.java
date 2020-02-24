@@ -27,12 +27,26 @@ public class CarteUtilTest {
     }
 
     @Test
-    public void ilYABoisDroite() {
+    public void ilYABoisDroiteTest() {
         carte.setPoint(new Coordonner( 1, 0), '#');
 
         assertTrue(util.ilYABoisDroite(carte, new Coordonner(0, 0)));
         assertFalse(util.ilYABoisDroite(carte, new Coordonner(0, 1)));
         assertFalse(util.ilYABoisDroite(carte, new Coordonner(1, 0)));
         assertFalse(util.ilYABoisDroite(carte, new Coordonner(1, 1)));
+    }
+
+    @Test
+    public void estValableDirectionETest() {
+        Coordonner courantValideNonLimiteNonBois = new Coordonner(0, 0);
+        assertTrue(util.estValable(this.carte, courantValideNonLimiteNonBois, 'E'));
+
+        Coordonner courantInvalideLimite = new Coordonner(1, 0);
+        assertFalse(util.estValable(this.carte, courantInvalideLimite, 'E'));
+
+        Coordonner courantInvalideBois = new Coordonner(0, 0);
+        carte.setPoint(new Coordonner( 1, 0), '#');
+        assertFalse(util.estValable(this.carte, courantInvalideBois, 'E'));
+
     }
 }
