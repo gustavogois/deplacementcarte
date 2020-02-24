@@ -12,16 +12,16 @@ public class CarteService {
 
     public Jeu deplacement(Jeu jeu, char direction) {
 
-//        Jeu nouveauJeu = new Jeu(jeu);
-
-//        switch (direction) {
-//            case 'E' :
-//                return Carteutil.estValable(jeu.getCarte(), jeu.getCourant(), direction) ?
-//                        coordUtil.est(courant) : courant;
-//            default:
-//                return courant;
-//        }
-        return null;
+        // todo: immutability
+        switch (direction) {
+            case 'E' :
+                Coordonner nouveauCoord = Carteutil.estValable(jeu.getCarte(), jeu.getCourant(), direction) ?
+                        coordUtil.est(jeu.getCourant()) : jeu.getCourant();
+                jeu.setCourant(nouveauCoord);
+                return jeu;
+            default:
+                return jeu;
+        }
     }
 
 }

@@ -1,5 +1,7 @@
 package fr.com.gfi.deplacementcarte.model;
 
+import util.CarteUtil;
+
 import java.util.Arrays;
 
 // todo: immuabilité
@@ -8,6 +10,11 @@ public class Carte {
 
     public Carte(Coordonner taille) {
         points = new char[taille.getX()][taille.getY()];
+    }
+
+    public Carte(Coordonner taille, char c) {
+        this(taille);
+        new CarteUtil().remplirAvec(this, c);
     }
 
     public int getPoint(Coordonner coord) {
