@@ -20,4 +20,9 @@ public class JeuService {
         return jeu;
     }
 
+    public Jeu jouerAuJeu(String nomFichierJeu) {
+        Jeu jeu = new Jeu(nomFichierJeu);
+        return null;
+    }
+
 }

@@ -1,7 +1,7 @@
 package fr.com.gfi.deplacementcarte.model;
 
-import util.CarteUtil;
-import util.FileUtils;
+import fr.com.gfi.deplacementcarte.util.CarteUtil;
+import fr.com.gfi.deplacementcarte.util.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static fr.com.gfi.deplacementcarte.util.FileUtils.obtenirListeDuFichier;
+
 // todo: immuabilité
 public class Carte {
     private char[][] points;
@@ -23,17 +25,10 @@ public class Carte {
     }
 
     public Carte(String nomDeFichier) {
+        definirPointsDesLignes(obtenirListeDuFichier("carte.txt"));
+    }
 
-        // todo improvement
-        List<String> lignes = new ArrayList<>();
-        try (Stream<String> stream = Files.lines(Paths.get(FileUtils.getPathFromResources("carte.txt")))) {
-
-            lignes = stream.collect(Collectors.toList());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    private void definirPointsDesLignes(List<String> lignes) {
         points = new char[lignes.size()][];
         for (int i = 0 ; i < lignes.size() ; i++) {
             points[i] = new char[lignes.get(i).length()];

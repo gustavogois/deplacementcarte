@@ -1,5 +1,7 @@
 package fr.com.gfi.deplacementcarte.model;
 
+import fr.com.gfi.deplacementcarte.util.FileUtils;
+
 public class Jeu {
 
     private Carte carte;
@@ -10,6 +12,10 @@ public class Jeu {
         this.carte = carte;
         setDepart(depart);
         setCourant(courant);
+    }
+
+    public Jeu(String nomFichierJeu) {
+        FileUtils.getPathFromResources(nomFichierJeu);
     }
 
     public void setDepart(Coordonner coord) {

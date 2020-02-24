@@ -136,4 +136,11 @@ public class JeuServiceTest {
         // todo Transformar em um único equals, usando o equals de Coord (em todos!!)
         assertEquals(new Coordonner(0, 1), jeu.getCourant());
     }
+
+//    @Test
+//    public void jouerAuJeuTest() {
+//        Jeu jeu = service.jouerAuJeu("premier_test.txt");
+//
+//        assertEquals(new Coordonner(9, 2), jeu.getCourant());
+//    }
 }
