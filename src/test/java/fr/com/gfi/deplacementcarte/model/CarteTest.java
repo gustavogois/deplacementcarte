@@ -3,20 +3,17 @@ package fr.com.gfi.deplacementcarte.model;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
-
 import static org.junit.Assert.*;
 
 public class CarteTest {
 
     Carte carte;
-    Carte carteFile;
+    Carte carteFichier;
 
     @Before
     public void before() {
         carte = new Carte(new Coordonner(2, 2), ' ');
-        carteFile = new Carte("carte.txt");
+        carteFichier = new Carte("carte.txt");
     }
 
     @Test
@@ -37,5 +34,10 @@ public class CarteTest {
                 assertEquals(' ', points[ligne][collone]);
             }
         }
+    }
+
+    @Test
+    public void carteFichierTest() {
+        assertNotNull(carteFichier.getPoints());
     }
 }
