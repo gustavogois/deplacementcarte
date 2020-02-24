@@ -1,13 +1,14 @@
 package service;
 
-import fr.com.gfi.deplacementcarte.model.Carte;
 import fr.com.gfi.deplacementcarte.model.Coordonner;
 import fr.com.gfi.deplacementcarte.model.Jeu;
 import util.CarteUtil;
+import util.CoordonnerUtil;
 
 public class CarteService {
 
-    private CarteUtil util = new CarteUtil();
+    private CarteUtil Carteutil = new CarteUtil();
+    private CoordonnerUtil coordUtil = new CoordonnerUtil();
 
     public Coordonner deplacement(Jeu jeu, char direction) {
 
@@ -15,7 +16,8 @@ public class CarteService {
 
         switch (direction) {
             case 'E' :
-                return util.estValable(jeu.getCarte(), jeu.getCourant(), direction) ? courant.est() : courant;
+                return Carteutil.estValable(jeu.getCarte(), jeu.getCourant(), direction) ?
+                        coordUtil.est(courant) : courant;
             default:
                 return courant;
         }
