@@ -23,4 +23,11 @@ public class JeuTest {
         assertEquals(new Coordonner(0, 0), jeu.getDepart());
         assertEquals(new Coordonner(0, 0), jeu.getCourant());
     }
+
+    @Test
+    public void regex() {
+        String test = "3,0";
+        String[] split = test.split(",");
+        System.out.println(split);
+    }
 }
