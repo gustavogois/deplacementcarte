@@ -1,22 +1,23 @@
 package fr.com.gfi.deplacementcarte.model;
 
 import fr.com.gfi.deplacementcarte.util.CarteUtil;
-import fr.com.gfi.deplacementcarte.util.FileUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static fr.com.gfi.deplacementcarte.util.FileUtils.obtenirListeDuFichier;
 
 // todo: immuabilité
 public class Carte {
+    public static final String CARTE_FICHIER = "carte.txt";
+    public static final char EST = 'E';
+    public static final char NORD = 'N';
+    public static final char OUEST = 'O';
+    public static final char SUD = 'S';
+    public static final int LIMITE_X = 0;
+    public static final int LIMITE_Y = 0;
+    public static final char BOIS = '#';
+    public static final char LIBRE = (char) 32;
+
     private char[][] points;
 
     public Carte(Coordonner taille, char c) {
@@ -25,7 +26,7 @@ public class Carte {
     }
 
     public Carte(String nomDeFichier) {
-        definirPointsDesLignes(obtenirListeDuFichier("carte.txt"));
+        definirPointsDesLignes(obtenirListeDuFichier(CARTE_FICHIER));
     }
 
     private void definirPointsDesLignes(List<String> lignes) {

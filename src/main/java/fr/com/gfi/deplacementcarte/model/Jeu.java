@@ -8,6 +8,8 @@ import static fr.com.gfi.deplacementcarte.util.FileUtils.obtenirListeDuFichier;
 
 public class Jeu {
 
+    public static final String SEPARATEUR_DES_COORDONNEES = ",";
+
     private Carte carte;
     private Coordonner depart;
     private Coordonner courant;
@@ -20,10 +22,10 @@ public class Jeu {
     }
 
     public Jeu(String nomFichierJeu) {
-        List<String> lignes = obtenirListeDuFichier("premier_test.txt");
-        String[] premiereLigne = lignes.get(0).split(",");
+        List<String> lignes = obtenirListeDuFichier(nomFichierJeu);
+        String[] premiereLigne = lignes.get(0).split(SEPARATEUR_DES_COORDONNEES);
 
-        this.carte = new Carte("carte.txt");
+        this.carte = new Carte(Carte.CARTE_FICHIER);
         this.depart = new Coordonner(Integer.parseInt(premiereLigne[0]), Integer.parseInt(premiereLigne[1]));
         this.courant = this.depart;
         this.directions = lignes.get(1);

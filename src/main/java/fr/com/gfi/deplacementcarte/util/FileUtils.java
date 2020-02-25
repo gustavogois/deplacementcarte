@@ -10,8 +10,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FileUtils {
+
+    public static final String SRC_MAIN_RESOURCES = "\\src\\main\\resources\\";
+
     public static String getPathFromResources(String nomDeFichier) {
-        return new File("").getAbsolutePath() + "\\src\\main\\resources\\" + nomDeFichier;
+        return new File("").getAbsolutePath() + SRC_MAIN_RESOURCES + nomDeFichier;
     }
 
     public static List<String> obtenirListeDuFichier(String nomFichier) {

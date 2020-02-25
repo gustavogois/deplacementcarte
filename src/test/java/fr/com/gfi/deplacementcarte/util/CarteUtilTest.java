@@ -15,7 +15,7 @@ public class CarteUtilTest {
     @Before
     public void setUp() throws Exception {
         this.util = new CarteUtil();
-        this.carte = new Carte(new Coordonner(2, 2), ' ');
+        this.carte = new Carte(new Coordonner(2, 2), Carte.LIBRE);
     }
 
     @Test
@@ -29,12 +29,12 @@ public class CarteUtilTest {
             }
         }
 
-        util.remplirAvec(this.carte, '#');
+        util.remplirAvec(this.carte, Carte.BOIS);
 
         // todo use lambda to assert
         for (int ligne = 0 ; ligne < points.length ; ligne++) {
             for (int collone = 0 ; collone < points[ligne].length ; collone++) {
-                assertEquals('#', points[ligne][collone]);
+                assertEquals(Carte.BOIS, points[ligne][collone]);
             }
         }
 
@@ -42,131 +42,131 @@ public class CarteUtilTest {
 
     @Test
     public void nEstPasLimiteSudTest() {
-        assertFalse(util.estLimite(carte, new Coordonner(0, 0), 'S'));
-        assertTrue(util.estLimite(carte, new Coordonner(0, 1), 'S'));
-        assertFalse(util.estLimite(carte, new Coordonner(1, 0), 'S'));
-        assertTrue(util.estLimite(carte, new Coordonner(1, 1), 'S'));
+        assertFalse(util.estLimite(carte, new Coordonner(0, 0), Carte.SUD));
+        assertTrue(util.estLimite(carte, new Coordonner(0, 1), Carte.SUD));
+        assertFalse(util.estLimite(carte, new Coordonner(1, 0), Carte.SUD));
+        assertTrue(util.estLimite(carte, new Coordonner(1, 1), Carte.SUD));
     }
 
     @Test
     public void ilYABoisDessousTest() {
-        carte.setPoint(new Coordonner( 0, 1), '#');
+        carte.setPoint(new Coordonner( 0, 1), Carte.BOIS);
 
-        assertTrue(util.ilYABois(carte, new Coordonner(0, 0), 'S'));
-        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), 'S'));
-        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), 'S'));
-        assertFalse(util.ilYABois(carte, new Coordonner(1, 1), 'S'));
+        assertTrue(util.ilYABois(carte, new Coordonner(0, 0), Carte.SUD));
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), Carte.SUD));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), Carte.SUD));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 1), Carte.SUD));
     }
 
     @Test
     public void estValableDirectionSudTest() {
-        carte.setPoint(new Coordonner( 0, 1), '#');
+        carte.setPoint(new Coordonner( 0, 1), Carte.BOIS);
 
         Coordonner courant1 = new Coordonner(0, 0);
-        assertFalse(util.estValable(this.carte, courant1, 'S'));
+        assertFalse(util.estValable(this.carte, courant1, Carte.SUD));
 
         Coordonner courant2 = new Coordonner(1, 0);
-        assertTrue(util.estValable(this.carte, courant2, 'S'));
+        assertTrue(util.estValable(this.carte, courant2, Carte.SUD));
 
         Coordonner courant3 = new Coordonner(1, 1);
-        assertFalse(util.estValable(this.carte, courant3, 'S'));
+        assertFalse(util.estValable(this.carte, courant3, Carte.SUD));
 
     }
 
     @Test
     public void nEstPasLimiteEstTest() {
-        assertFalse(util.estLimite(carte, new Coordonner(0, 0), 'E'));
-        assertFalse(util.estLimite(carte, new Coordonner(0, 1), 'E'));
-        assertTrue(util.estLimite(carte, new Coordonner(1, 0), 'E'));
-        assertTrue(util.estLimite(carte, new Coordonner(1, 1), 'E'));
+        assertFalse(util.estLimite(carte, new Coordonner(0, 0), Carte.EST));
+        assertFalse(util.estLimite(carte, new Coordonner(0, 1), Carte.EST));
+        assertTrue(util.estLimite(carte, new Coordonner(1, 0), Carte.EST));
+        assertTrue(util.estLimite(carte, new Coordonner(1, 1), Carte.EST));
     }
 
     @Test
     public void ilYABoisDroiteTest() {
-        carte.setPoint(new Coordonner( 1, 0), '#');
+        carte.setPoint(new Coordonner( 1, 0), Carte.BOIS);
 
-        assertTrue(util.ilYABois(carte, new Coordonner(0, 0), 'E'));
-        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), 'E'));
-        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), 'E'));
-        assertFalse(util.ilYABois(carte, new Coordonner(1, 1), 'E'));
+        assertTrue(util.ilYABois(carte, new Coordonner(0, 0), Carte.EST));
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), Carte.EST));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), Carte.EST));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 1), Carte.EST));
     }
 
     @Test
     public void estValableDirectionEstTest() {
         Coordonner courantValideNonLimiteNonBois = new Coordonner(0, 0);
-        assertTrue(util.estValable(this.carte, courantValideNonLimiteNonBois, 'E'));
+        assertTrue(util.estValable(this.carte, courantValideNonLimiteNonBois, Carte.EST));
 
         Coordonner courantInvalideLimite = new Coordonner(1, 0);
-        assertFalse(util.estValable(this.carte, courantInvalideLimite, 'E'));
+        assertFalse(util.estValable(this.carte, courantInvalideLimite, Carte.EST));
 
         Coordonner courantInvalideBois = new Coordonner(0, 0);
-        carte.setPoint(new Coordonner( 1, 0), '#');
-        assertFalse(util.estValable(this.carte, courantInvalideBois, 'E'));
+        carte.setPoint(new Coordonner( 1, 0), Carte.BOIS);
+        assertFalse(util.estValable(this.carte, courantInvalideBois, Carte.EST));
     }
 
     @Test
     public void nEstPasLimiteNordTest() {
-        assertTrue(util.estLimite(carte, new Coordonner(0, 0), 'N'));
-        assertFalse(util.estLimite(carte, new Coordonner(0, 1), 'N'));
-        assertTrue(util.estLimite(carte, new Coordonner(1, 0), 'N'));
-        assertFalse(util.estLimite(carte, new Coordonner(1, 1), 'N'));
+        assertTrue(util.estLimite(carte, new Coordonner(0, 0), Carte.NORD));
+        assertFalse(util.estLimite(carte, new Coordonner(0, 1), Carte.NORD));
+        assertTrue(util.estLimite(carte, new Coordonner(1, 0), Carte.NORD));
+        assertFalse(util.estLimite(carte, new Coordonner(1, 1), Carte.NORD));
     }
 
     @Test
     public void ilYABoisDessusTest() {
-        carte.setPoint(new Coordonner( 1, 0), '#');
+        carte.setPoint(new Coordonner( 1, 0), Carte.BOIS);
 
-        assertFalse(util.ilYABois(carte, new Coordonner(0, 0), 'N'));
-        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), 'N'));
-        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), 'N'));
-        assertTrue(util.ilYABois(carte, new Coordonner(1, 1), 'N'));
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 0), Carte.NORD));
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), Carte.NORD));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), Carte.NORD));
+        assertTrue(util.ilYABois(carte, new Coordonner(1, 1), Carte.NORD));
     }
 
     @Test
     public void estValableDirectionNordTest() {
-        carte.setPoint(new Coordonner( 1, 0), '#');
+        carte.setPoint(new Coordonner( 1, 0), Carte.BOIS);
 
         Coordonner courant1 = new Coordonner(0, 0);
-        assertFalse(util.estValable(this.carte, courant1, 'N'));
+        assertFalse(util.estValable(this.carte, courant1, Carte.NORD));
 
         Coordonner courant2 = new Coordonner(0, 1);
-        assertTrue(util.estValable(this.carte, courant2, 'N'));
+        assertTrue(util.estValable(this.carte, courant2, Carte.NORD));
 
         Coordonner courant3 = new Coordonner(1, 1);
-        assertFalse(util.estValable(this.carte, courant3, 'N'));
+        assertFalse(util.estValable(this.carte, courant3, Carte.NORD));
 
     }
 
     @Test
     public void nEstPasLimiteOuestTest() {
-        assertTrue(util.estLimite(carte, new Coordonner(0, 0), 'O'));
-        assertTrue(util.estLimite(carte, new Coordonner(0, 1), 'O'));
-        assertFalse(util.estLimite(carte, new Coordonner(1, 0), 'O'));
-        assertFalse(util.estLimite(carte, new Coordonner(1, 1), 'O'));
+        assertTrue(util.estLimite(carte, new Coordonner(0, 0), Carte.OUEST));
+        assertTrue(util.estLimite(carte, new Coordonner(0, 1), Carte.OUEST));
+        assertFalse(util.estLimite(carte, new Coordonner(1, 0), Carte.OUEST));
+        assertFalse(util.estLimite(carte, new Coordonner(1, 1), Carte.OUEST));
     }
 
     @Test
     public void ilYABoisGaucheTest() {
-        carte.setPoint(new Coordonner( 0, 1), '#');
+        carte.setPoint(new Coordonner( 0, 1), Carte.BOIS);
 
-        assertFalse(util.ilYABois(carte, new Coordonner(0, 0), 'O'));
-        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), 'O'));
-        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), 'O'));
-        assertTrue(util.ilYABois(carte, new Coordonner(1, 1), 'O'));
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 0), Carte.OUEST));
+        assertFalse(util.ilYABois(carte, new Coordonner(0, 1), Carte.OUEST));
+        assertFalse(util.ilYABois(carte, new Coordonner(1, 0), Carte.OUEST));
+        assertTrue(util.ilYABois(carte, new Coordonner(1, 1), Carte.OUEST));
     }
 
     @Test
     public void estValableDirectionOuestTest() {
-        carte.setPoint(new Coordonner( 0, 1), '#');
+        carte.setPoint(new Coordonner( 0, 1), Carte.BOIS);
 
         Coordonner courant1 = new Coordonner(0, 0);
-        assertFalse(util.estValable(this.carte, courant1, 'O'));
+        assertFalse(util.estValable(this.carte, courant1, Carte.OUEST));
 
         Coordonner courant2 = new Coordonner(1, 0);
-        assertTrue(util.estValable(this.carte, courant2, 'O'));
+        assertTrue(util.estValable(this.carte, courant2, Carte.OUEST));
 
         Coordonner courant3 = new Coordonner(1, 1);
-        assertFalse(util.estValable(this.carte, courant3, 'O'));
+        assertFalse(util.estValable(this.carte, courant3, Carte.OUEST));
 
     }
 

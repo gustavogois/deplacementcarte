@@ -1,18 +1,19 @@
 package fr.com.gfi.deplacementcarte.util;
 
+import fr.com.gfi.deplacementcarte.model.Carte;
 import fr.com.gfi.deplacementcarte.model.Coordonner;
 
 public class CoordonnerUtil {
 
     public Coordonner deplacement(Coordonner coord, char direction) {
         switch (direction) {
-            case 'E':
+            case Carte.EST:
                 return new Coordonner(coord.getX() + 1, coord.getY());
-            case 'S':
+            case Carte.SUD:
                 return new Coordonner(coord.getX(), coord.getY() + 1);
-            case 'N':
+            case Carte.NORD:
                 return new Coordonner(coord.getX(), coord.getY() - 1);
-            case 'O':
+            case Carte.OUEST:
                 return new Coordonner(coord.getX() - 1, coord.getY());
             default:
                 return coord;

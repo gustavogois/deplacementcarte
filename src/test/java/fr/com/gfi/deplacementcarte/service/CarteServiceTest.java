@@ -17,8 +17,8 @@ public class CarteServiceTest {
     @Before
     public void before() {
         this.service = new CarteService();
-        this.carte = new Carte(new Coordonner(2, 2), ' ');
-        this.carte.setPoint(new Coordonner(1, 0), '#');
+        this.carte = new Carte(new Coordonner(2, 2), Carte.LIBRE);
+        this.carte.setPoint(new Coordonner(1, 0), Carte.BOIS);
         this.courant = new Coordonner(0, 0);
     }
 
@@ -26,7 +26,7 @@ public class CarteServiceTest {
     public void deplacementVersEst() {
         this.courant = new Coordonner(0, 1);
 
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'E');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.EST);
 
         assertEquals(1, nouveauCoord.getX());
         assertEquals(1, nouveauCoord.getY());
@@ -34,7 +34,7 @@ public class CarteServiceTest {
 
     @Test
     public void deplacementVersEstIlyaBois() {
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'E');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.EST);
 
         assertTrue(nouveauCoord == courant);
     }
@@ -43,7 +43,7 @@ public class CarteServiceTest {
     public void deplacementVersEstEstLimite() {
         this.courant = new Coordonner(1, 1);
 
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'E');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.EST);
 
         assertTrue(nouveauCoord == courant);
     }
@@ -52,7 +52,7 @@ public class CarteServiceTest {
     public void deplacementVersSud() {
         this.courant = new Coordonner(1, 0);
 
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'S');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.SUD);
 
         assertEquals(1, nouveauCoord.getX());
         assertEquals(1, nouveauCoord.getY());
@@ -60,9 +60,9 @@ public class CarteServiceTest {
 
     @Test
     public void deplacementVersSudIlyaBois() {
-        this.carte.setPoint(new Coordonner(0, 1), '#');
+        this.carte.setPoint(new Coordonner(0, 1), Carte.BOIS);
 
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'S');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.SUD);
 
         assertTrue(nouveauCoord == courant);
     }
@@ -71,7 +71,7 @@ public class CarteServiceTest {
     public void deplacementVersSudEstLimite() {
         this.courant = new Coordonner(1, 1);
 
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'S');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.SUD);
 
         assertTrue(nouveauCoord == courant);
     }
@@ -80,7 +80,7 @@ public class CarteServiceTest {
     public void deplacementVersNord() {
         this.courant = new Coordonner(0, 1);
 
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'N');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.NORD);
 
         assertEquals(0, nouveauCoord.getX());
         assertEquals(0, nouveauCoord.getY());
@@ -90,14 +90,14 @@ public class CarteServiceTest {
     public void deplacementVersNordIlyaBois() {
         this.courant = new Coordonner(1, 1);
 
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'N');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.NORD);
 
         assertTrue(nouveauCoord == courant);
     }
 
     @Test
     public void deplacementVersNordEstLimite() {
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'N');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.NORD);
 
         assertTrue(nouveauCoord == courant);
     }
@@ -106,7 +106,7 @@ public class CarteServiceTest {
     public void deplacementVersOuest() {
         this.courant = new Coordonner(1, 1);
 
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'O');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.OUEST);
 
         assertEquals(0, nouveauCoord.getX());
         assertEquals(1, nouveauCoord.getY());
@@ -115,16 +115,16 @@ public class CarteServiceTest {
     @Test
     public void deplacementVersOuestIlyaBois() {
         this.courant = new Coordonner(1, 1);
-        this.carte.setPoint(new Coordonner(0, 1), '#');
+        this.carte.setPoint(new Coordonner(0, 1), Carte.BOIS);
 
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'O');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.OUEST);
 
         assertTrue(nouveauCoord == courant);
     }
 
     @Test
     public void deplacementVersOuestEstLimite() {
-        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, 'O');
+        Coordonner nouveauCoord = service.deplacement(this.carte, this.courant, Carte.OUEST);
 
         assertTrue(nouveauCoord == courant);
     }

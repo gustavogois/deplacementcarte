@@ -12,13 +12,13 @@ public class CarteTest {
 
     @Before
     public void before() {
-        carte = new Carte(new Coordonner(2, 2), ' ');
+        carte = new Carte(new Coordonner(2, 2), Carte.LIBRE);
         carteFichier = new Carte("carte.txt");
     }
 
     @Test
     public void getPointTest() {
-        carte.setPoint(new Coordonner(0, 1), '#');
+        carte.setPoint(new Coordonner(0, 1), Carte.BOIS);
 
         int point = carte.getPoint(new Coordonner(0, 1));
 

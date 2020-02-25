@@ -15,19 +15,12 @@ public class JeuTest {
         // todo: lombok, builder
         Coordonner taille = new Coordonner(2, 2);
         Coordonner depart = new Coordonner(0, 0);
-        this.jeu = new Jeu(new Carte(taille, ' '), depart);
+        this.jeu = new Jeu(new Carte(taille, Carte.LIBRE), depart);
     }
 
     @Test
     public void departTest() {
         assertEquals(new Coordonner(0, 0), jeu.getDepart());
         assertEquals(new Coordonner(0, 0), jeu.getCourant());
-    }
-
-    @Test
-    public void regex() {
-        String test = "3,0";
-        String[] split = test.split(",");
-        System.out.println(split);
     }
 }

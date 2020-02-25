@@ -9,14 +9,14 @@ public class CarteUtil {
 
     public boolean estLimite(Carte carte, Coordonner courant, char c) {
         switch (c) {
-            case 'E':
+            case Carte.EST:
                 return courant.getX() >= (carte.getPoints()[courant.getY()].length - 1);
-            case 'S':
+            case Carte.SUD:
                 return courant.getY() >= (carte.getPoints()[courant.getX()].length - 1);
-            case 'N':
-                return courant.getY() == 0;
-            case 'O':
-                return courant.getX() == 0;
+            case Carte.NORD:
+                return courant.getY() == Carte.LIMITE_Y;
+            case Carte.OUEST:
+                return courant.getX() == Carte.LIMITE_X;
             default:
                 return false;
         }
@@ -24,18 +24,18 @@ public class CarteUtil {
 
     public boolean ilYABois(Carte carte, Coordonner courant, char c) {
         switch (c) {
-            case 'E':
-                return !estLimite(carte, courant, 'E') &&
-                        carte.getPoints()[courant.getX() + 1][courant.getY()] == '#';
-            case 'S':
-                return !estLimite(carte, courant, 'S') &&
-                        carte.getPoints()[courant.getX()][courant.getY() + 1] == '#';
-            case 'N':
-                return !estLimite(carte, courant, 'N') &&
-                        carte.getPoints()[courant.getX()][courant.getY() - 1] == '#';
-            case 'O':
-                return !estLimite(carte, courant, 'O') &&
-                        carte.getPoints()[courant.getX() - 1][courant.getY()] == '#';
+            case Carte.EST:
+                return !estLimite(carte, courant, Carte.EST) &&
+                        carte.getPoints()[courant.getX() + 1][courant.getY()] == Carte.BOIS;
+            case Carte.SUD:
+                return !estLimite(carte, courant, Carte.SUD) &&
+                        carte.getPoints()[courant.getX()][courant.getY() + 1] == Carte.BOIS;
+            case Carte.NORD:
+                return !estLimite(carte, courant, Carte.NORD) &&
+                        carte.getPoints()[courant.getX()][courant.getY() - 1] == Carte.BOIS;
+            case Carte.OUEST:
+                return !estLimite(carte, courant, Carte.OUEST) &&
+                        carte.getPoints()[courant.getX() - 1][courant.getY()] == Carte.BOIS;
             default:
                 return false;
         }
@@ -44,14 +44,14 @@ public class CarteUtil {
     public boolean estValable(Carte carte, Coordonner coord, char direction) {
 
         switch (direction) {
-            case 'E' :
-                return !estLimite(carte, coord, 'E') && !ilYABois(carte, coord, 'E');
-            case 'S' :
-                return !estLimite(carte, coord, 'S') && !ilYABois(carte, coord, 'S');
-            case 'N' :
-                return !estLimite(carte, coord, 'N') && !ilYABois(carte, coord, 'N');
-            case 'O' :
-                return !estLimite(carte, coord, 'O') && !ilYABois(carte, coord, 'O');
+            case Carte.EST:
+                return !estLimite(carte, coord, Carte.EST) && !ilYABois(carte, coord, Carte.EST);
+            case Carte.SUD:
+                return !estLimite(carte, coord, Carte.SUD) && !ilYABois(carte, coord, Carte.SUD);
+            case Carte.NORD:
+                return !estLimite(carte, coord, Carte.NORD) && !ilYABois(carte, coord, Carte.NORD);
+            case Carte.OUEST:
+                return !estLimite(carte, coord, Carte.OUEST) && !ilYABois(carte, coord, Carte.OUEST);
             default:
                 return false;
         }

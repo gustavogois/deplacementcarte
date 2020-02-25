@@ -1,5 +1,6 @@
 package fr.com.gfi.deplacementcarte.util;
 
+import fr.com.gfi.deplacementcarte.model.Carte;
 import fr.com.gfi.deplacementcarte.model.Coordonner;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +20,7 @@ public class CoordonnerUtilTest {
 
     @Test
     public void immuabiliteEstTest() {
-        Coordonner newCoord = util.deplacement(this.coordonner, 'E');
+        Coordonner newCoord = util.deplacement(this.coordonner, Carte.EST);
 
         assertEquals(1, this.coordonner.getX());
         assertEquals(2, this.coordonner.getY());
@@ -28,7 +29,7 @@ public class CoordonnerUtilTest {
 
     @Test
     public void estTest() {
-        Coordonner newCoord = util.deplacement(this.coordonner, 'E');
+        Coordonner newCoord = util.deplacement(this.coordonner, Carte.EST);
 
         assertEquals(2, newCoord. getX());
         assertEquals(2, newCoord. getY());
@@ -36,7 +37,7 @@ public class CoordonnerUtilTest {
 
     @Test
     public void sudTest() {
-        Coordonner newCoord = util.deplacement(this.coordonner, 'S');
+        Coordonner newCoord = util.deplacement(this.coordonner, Carte.SUD);
 
         assertEquals(1, newCoord. getX());
         assertEquals(3, newCoord. getY());
@@ -44,7 +45,7 @@ public class CoordonnerUtilTest {
 
     @Test
     public void nordTest() {
-        Coordonner newCoord = util.deplacement(this.coordonner, 'N');
+        Coordonner newCoord = util.deplacement(this.coordonner, Carte.NORD);
 
         assertEquals(1, newCoord. getX());
         assertEquals(1, newCoord. getY());
@@ -52,7 +53,7 @@ public class CoordonnerUtilTest {
 
     @Test
     public void OuestTest() {
-        Coordonner newCoord = util.deplacement(this.coordonner, 'O');
+        Coordonner newCoord = util.deplacement(this.coordonner, Carte.OUEST);
 
         assertEquals(0, newCoord. getX());
         assertEquals(2, newCoord. getY());
